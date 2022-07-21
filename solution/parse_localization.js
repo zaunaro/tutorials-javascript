@@ -13,15 +13,16 @@ console.log(parseLocalization(input));
 
 /* -------------------------------------- */
 function parseLocalization(aSource) {
-  const result = {};
+  const result = { text: "", i18n: {} };
 
-  result.text = aSource[0].de;
-  result.i18n = {};
-
-  for (let i = 1; i < aSource.length; i++) {
-    result.i18n[Object.keys(aSource[i])] = {
-      text: aSource[i][Object.keys(aSource[i])],
-    };
+  for (const source of aSource) {
+    if (Object.keys(source) == "de") {
+      result.text = Object.keys(source).toString();
+    } else {
+      result.i18n[Object.keys(source)] = {
+        text: source[Object.keys(source)],
+      };
+    }
   }
 
   return result;
