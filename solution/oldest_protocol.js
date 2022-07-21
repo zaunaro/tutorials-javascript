@@ -83,8 +83,6 @@ const aProtocols = [
 ];
 
 function getOldestProtocols(aProtocols) {
-  // Insert Code Here
-
   let aDates = [];
 
   /* for (let i = 0; i < aProtocols.length; i++) {

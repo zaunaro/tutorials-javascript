@@ -1,4 +1,4 @@
-// erstelle eine funktion, welche als paramenter nachfolgenden "input" erhält.
+// Erstelle eine fFunktion, welche als Parameter nachfolgenden "input" erhält.
 // Das Ergebnis aus der Funktion soll dem nachfolgendem "output" entsprechen.
 
 // expected input
