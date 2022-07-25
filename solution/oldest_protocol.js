@@ -1,4 +1,3 @@
-// You should be able to get the oldest Protocol of these list
 const aProtocols = [
   {
     _id: "61151f1dda8a85c9662efe6f",
@@ -82,26 +81,61 @@ const aProtocols = [
   },
 ];
 
+/****************************************** Daniel ********************************************************/
 function getOldestProtocols(aProtocols) {
-  let aDates = [];
-
-  /* for (let i = 0; i < aProtocols.length; i++) {
-    aDates.push(aProtocols[i].shiftStartDate);
-  } */
-
-  /* let i = 0;
-  do {
-    aDates.push(aProtocols[i].shiftStartDate);
-    i++;
-  } while (i < aProtocols.length); */
-
-  aDates = aProtocols.map((oProtocol) => {
-    return oProtocol.shiftStartDate;
-  });
-
-  aDates.sort();
-
-  return aProtocols.find((protocol) => protocol.shiftStartDate === aDates[0]);
+  var oldestTopics = {};
+  aProtocols.forEach(protocol => {
+    var topic = protocol.topic;
+    if (!oldestTopics.hasOwnProperty(topic)) {
+            oldestTopics[topic] = protocol;
+    } else if (oldestTopics[topic].shiftStartDate > protocol.shiftStartDate) {
+          oldestTopics[topic] = protocol;
+    }
+  })
+  return Object.values(oldestTopics);
 }
+
+/****************************************** Flo ********************************************************/
+// function getOldestProtocols(aProtocols) {
+//     const oldest = {};
+//   for (let index = 0; index < aProtocols.length; index++) {
+//     const element = aProtocols[index];
+//         if (oldest[element.topic] == null || oldest[element.topic].shiftStartDate > element.shiftStartDate){
+//         oldest[element.topic] = element
+//     }
+//   }
+//   return Object.values(oldest);
+// }
+
+/****************************************** Simon ********************************************************/
+// function getOldestProtocols(aProtocols) {
+//     return aProtocols.reduce((map, shiftProtocol) => {
+//             const topic = shiftProtocol.topic;
+//             if (!map.has(topic)) map.set(topic, shiftProtocol);
+//             if (map.get(topic).shiftStartDate > shiftProtocol.shiftStartDate) map.set(topic, shiftProtocol);
+//             return map;
+//         }, new Map());
+// }
+
+/****************************************** Uli ********************************************************/
+// function getOldestProtocols(aProtocols) {
+//     let result = [];
+//   function groupArrayOfObjects(list, key) {
+//     return list.reduce(function(rv, x) {
+//       (rv[x[key]] = rv[x[key]] || []).push(x);
+//       return rv;
+//     }, {});
+//   };
+//   function reducerFindOldest(acc, obj) {
+//     return acc && new Date(acc.shiftStartDate) < new Date(obj.shiftStartDate) ? acc : obj;
+//   }
+//   // group by topic
+//   let groupedProtocols = groupArrayOfObjects(aProtocols,"topic")
+//   // for each group, get the oldest
+//   for(let [a,b] of Object.entries(groupedProtocols)){
+//     result.push(b.reduce(reducerFindOldest));
+//   }
+//   return result;
+// }
 
 console.log(getOldestProtocols(aProtocols));

@@ -1,4 +1,29 @@
-// You should be able to get the oldest Protocol of these list
+// Exercise 1: 
+//
+// 1. Get the oldest protocol grouped by the topic of the shift protocol.
+// Between the shift protocols with the same topic there are no duplicates in 
+// shift protocol dates. 
+//
+// 2. Check the performance of your code with jsbench.me
+// 
+// The solution should be a Map with this:
+// {
+//   '6113e0660c8535bebc84b48f' => {
+//     _id: '61151f1dda8a85c9662efe6f',
+//     topic: '6113e0660c8535bebc84b48f',
+//     shift: { _id: '6130b1d045b0280ba1eaed27', abbreviation: 'FS' },
+//     shiftStartDate: '2021-05-18T04:00:00.000Z',
+//     createdAt: '2021-05-18T03:01:00.000Z'
+//   },
+//   '6115310b31b6e46ba1cdeed2' => {
+//     _id: '611a4f2b9b30a61b33b0a409',
+//     topic: '6115310b31b6e46ba1cdeed2',
+//     shift: { _id: '6130b1d045b0280ba1eaed28', abbreviation: 'FS' },
+//     shiftStartDate: '2021-05-19T04:00:00.000Z',
+//     createdAt: '2021-05-19T07:00:35.000Z'
+//   }
+// }
+
 const aProtocols = [
   {
     _id: "61151f1dda8a85c9662efe6f",
@@ -85,6 +110,5 @@ const aProtocols = [
 
 function getOldestProtocols(aProtocols) {
     // Insert Code Here
-
 }
 console.log(getOldestProtocols(aProtocols));
